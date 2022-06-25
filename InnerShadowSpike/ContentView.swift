@@ -10,32 +10,21 @@ import Combine
 
 struct ContentView: View {
     
-    // MARK: - PROPERTIES
-    @State var bgR = 59.0
-    @State var bgG = 105.0
-    @State var bgB = 48.0
-    
-    @State var shadowR = 0.0
-    @State var shadowG = 0.0
-    @State var shadowB = 0.0
-    
-    @State var shadowRadius = 4.0
-    @State var xOffset = 0.0
-    @State var yOffset = 5.0
+    @State var viewModel: MainViewModel = MainViewModel()
     
     @State var textToDisplay = TextToDisplayOption.Custom
     @State var customTextToDisplay = "Liyicky was here"
     
     var backgroundColor: Color {
-        return Color(red: bgR / 255, green: bgG / 255, blue: bgB / 255)
+        return Color.RGB(viewModel.background)
     }
     
     var shadowdColor: Color {
-        return Color(red: shadowR / 255, green: shadowG / 255, blue: shadowB / 255)
+        return Color.RGB(viewModel.shadow)
     }
     
     var screenIsDark: Bool {
-        return bgR + bgG + bgB < (255 * 3) / 2
+        return viewModel.background.red + viewModel.background.green + viewModel.background.blue < (255 * 3) / 2
     }
     
     // MARK: = CONSTANTS
@@ -72,7 +61,7 @@ struct ContentView: View {
                                 .shadow(color: .black, radius: 1)
                                 .foregroundStyle(
                                     .white.gradient.shadow(
-                                        .inner(color: shadowdColor, radius: shadowRadius, x: xOffset, y: yOffset)
+                                        .inner(color: shadowdColor, radius: viewModel.shadowRadius, x: viewModel.xOffset, y: viewModel.yOffset)
                                     )
                                 )
                                 .font(.system(size: 275))
@@ -82,7 +71,7 @@ struct ContentView: View {
                                     .shadow(color: .black, radius: 1)
                                     .foregroundStyle(
                                         .white.gradient.shadow(
-                                            .inner(color: shadowdColor, radius: shadowRadius, x: xOffset, y: yOffset)
+                                            .inner(color: shadowdColor, radius: viewModel.shadowRadius, x: viewModel.xOffset, y: viewModel.yOffset)
                                         )
                                     )
                                     .font(.system(size: 275))
@@ -107,9 +96,9 @@ struct ContentView: View {
             }.padding(.top, 1)
             // MARK: - OPTIONS
             HStack {
-                ColorSliderView(rValue: $bgR, gValue: $bgG, bValue: $bgB)
-                ColorSliderView(rValue: $shadowR, gValue: $shadowG, bValue: $shadowB)
-                ShadowSettingsView(shadowRadius: $shadowRadius, xOffset: $xOffset, yOffset: $yOffset)
+                ColorSliderView(rValue: $viewModel.background.red, gValue: $viewModel.background.green, bValue: $viewModel.background.blue)
+                ColorSliderView(rValue: $viewModel.shadow.red, gValue: $viewModel.shadow.green, bValue: $viewModel.shadow.blue)
+                ShadowSettingsView(shadowRadius: $viewModel.shadowRadius, xOffset: $viewModel.xOffset, yOffset: $viewModel.yOffset)
             } // Options HStack
             
             // MARK: - OPTIONS PICKER
@@ -162,6 +151,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewLayout(.sizeThatFits)
     }
 }

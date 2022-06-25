@@ -13,6 +13,7 @@
 		5CC941712865712F008C05E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC941702865712F008C05E6 /* Preview Assets.xcassets */; };
 		5CC9417828659610008C05E6 /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9417728659610008C05E6 /* ColorSliderView.swift */; };
 		5CC9417A2865AFF9008C05E6 /* ShadowSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC941792865AFF9008C05E6 /* ShadowSettingsView.swift */; };
+		5CC9417C2866BF90008C05E6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9417B2866BF90008C05E6 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		5CC941702865712F008C05E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5CC9417728659610008C05E6 /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		5CC941792865AFF9008C05E6 /* ShadowSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettingsView.swift; sourceTree = "<group>"; };
+		5CC9417B2866BF90008C05E6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +57,14 @@
 		5CC941682865712E008C05E6 /* InnerShadowSpike */ = {
 			isa = PBXGroup;
 			children = (
+				5CC9417D2866C7C0008C05E6 /* Extensions */,
 				5CC941692865712E008C05E6 /* InnerShadowSpikeApp.swift */,
 				5CC9417728659610008C05E6 /* ColorSliderView.swift */,
 				5CC9416B2865712E008C05E6 /* ContentView.swift */,
 				5CC9416D2865712F008C05E6 /* Assets.xcassets */,
 				5CC9416F2865712F008C05E6 /* Preview Content */,
 				5CC941792865AFF9008C05E6 /* ShadowSettingsView.swift */,
+				5CC9417B2866BF90008C05E6 /* MainViewModel.swift */,
 			);
 			path = InnerShadowSpike;
 			sourceTree = "<group>";
@@ -71,6 +75,13 @@
 				5CC941702865712F008C05E6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5CC9417D2866C7C0008C05E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC9417C2866BF90008C05E6 /* MainViewModel.swift in Sources */,
 				5CC9416C2865712E008C05E6 /* ContentView.swift in Sources */,
 				5CC9417A2865AFF9008C05E6 /* ShadowSettingsView.swift in Sources */,
 				5CC9416A2865712E008C05E6 /* InnerShadowSpikeApp.swift in Sources */,
