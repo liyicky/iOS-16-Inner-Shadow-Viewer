@@ -15,7 +15,7 @@ struct RGBValue{
 
 struct MainViewModel {
     
-    var background: RGBValue = .init(red: 59, green: 105, blue: 48)
+    var background: RGBValue = .init(red: 255, green: 255, blue: 255)
     var shadow: RGBValue = .init(red: 0, green: 0, blue: 0)
     var font: RGBValue = .init(red: 0, green: 0, blue: 0)
     var shadowRadius: Double = 4.0
