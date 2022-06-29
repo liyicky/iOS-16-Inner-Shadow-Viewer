@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @State var textToDisplay = TextToDisplayOption.Custom
     @State var customTextToDisplay = "Liyicky was here"
+    @State var fontSize = 275.0
     
     var fontColor: Color {
         return Color.RGB(viewModel.background)
@@ -68,7 +69,8 @@ struct ContentView: View {
                                             .inner(color: shadowdColor, radius: viewModel.shadowRadius, x: viewModel.xOffset, y: viewModel.yOffset)
                                         )
                                     )
-                                    .font(.system(size: 275))
+                                    .font(.system(size: fontSize))
+                                    .animation(.easeIn, value: fontSize)
                                 
                             } else {
                                 ForEach(textToDisplay == .Kanji ? ContentView.KanjiArray : ContentView.Alphabet, id: \.self) { text in
@@ -79,7 +81,9 @@ struct ContentView: View {
                                                 .inner(color: shadowdColor, radius: viewModel.shadowRadius, x: viewModel.xOffset, y: viewModel.yOffset)
                                             )
                                         )
-                                        .font(.system(size: 275))
+                                        .font(.system(size: fontSize))
+                                        .animation(.easeIn, value: fontSize)
+                                    
                                 }
                             }
                         } // HStack
@@ -117,6 +121,21 @@ struct ContentView: View {
                         .pickerStyle(SegmentedPickerStyle())
                         .padding()
                     }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: UIScreen.main.bounds.width*0.9, height:UIScreen.main.bounds.height * 0.05)
+                            .foregroundColor(Color.white.opacity(0.5))
+                        HStack(alignment: .center, spacing: 5) {
+                            Text("Font Size: \(fontSize.formatted())")
+                                .font(.footnote)
+                                .padding()
+                            Slider(value: $fontSize, in: 0...500, step: 1)
+                                .accentColor(.black)
+                                .padding()
+                        }
+                    }
+
                     
                     // MARK: - CUSTOM INPUT
                     if textToDisplay == .Custom {
